@@ -1,0 +1,13 @@
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/testbase/BaseClass.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/steps/AddMembershipsSteps.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/utils/Functions.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/steps/Hooks.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/utils/ExcelReader.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/pages/DashboardPageElements.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/steps/TestRunner.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/utils/Constants.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/pages/LoginPageElements.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/pages/MembershipsPageElements.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/utils/ConfReader.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/steps/FailerRunner.java
+/Users/robespierre/eclipse-workspace/GoatFramework/src/test/java/com/goat/testbase/PageInitializer.java
