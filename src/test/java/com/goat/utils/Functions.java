@@ -14,6 +14,8 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.UnexpectedTagNameException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.goat.testbase.PageInitializer;
@@ -21,7 +23,7 @@ import com.goat.testbase.PageInitializer;
 public class Functions extends PageInitializer {
 
 //---------------------------------------------------------------------------------------
-	
+
 	public static WebDriverWait getWaitObj() {
 		WebDriverWait wait = new WebDriverWait(driver, Constants.EXPLICIT_WAIT);
 		return wait;
@@ -48,7 +50,7 @@ public class Functions extends PageInitializer {
 	}
 
 //---------------------------------------------------------------------------------------
-	
+
 	public static void sendText(WebElement element, String text) {
 		waitForVisibility(element).clear();
 		element.sendKeys(text);
@@ -64,7 +66,7 @@ public class Functions extends PageInitializer {
 	}
 
 //---------------------------------------------------------------------------------------	
-	
+
 	public static Actions getActionsObj() {
 		Actions action = new Actions(driver);
 		return action;
@@ -82,14 +84,16 @@ public class Functions extends PageInitializer {
 			return false;
 		}
 	}
-    /**
-     * 
-     * @param locator
-     * @return
-     */
+
+	/**
+	 * 
+	 * @param locator
+	 * @return
+	 */
 	public static boolean isElementVisible(By locator) {
 		return driver.findElement(locator).isDisplayed();
 	}
+
 	/**
 	 * 
 	 * @param listRows
@@ -97,8 +101,8 @@ public class Functions extends PageInitializer {
 	 * @return
 	 */
 	public static boolean presentedInTable(List<WebElement> listRows, String text) {
-		
-		for(int i=0; i<waitForVisibility(listRows).size(); i++) {
+
+		for (int i = 0; i < waitForVisibility(listRows).size(); i++) {
 			String row = listRows.get(i).getText();
 			if (row.contains(text)) {
 				return true;
@@ -106,12 +110,9 @@ public class Functions extends PageInitializer {
 		}
 		return false;
 	}
-	
-	
-	
-	
+
 //---------------------------------------------------------------------------------------	
-	
+
 	/**
 	 * 
 	 * @param fileName
@@ -120,7 +121,7 @@ public class Functions extends PageInitializer {
 	public static byte[] takeScreenshotBytes(String fileName) {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		byte[] picBytes = ts.getScreenshotAs(OutputType.BYTES);
-		
+
 		File shot = ts.getScreenshotAs(OutputType.FILE);
 		String destinationFile = Constants.SCREENSHOT_FILEPATH + fileName + getTimeStamp() + ".png";
 
@@ -132,6 +133,7 @@ public class Functions extends PageInitializer {
 		}
 		return picBytes;
 	}
+
 	/**
 	 * 
 	 * @param fileName
@@ -141,16 +143,17 @@ public class Functions extends PageInitializer {
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File srcFile = ts.getScreenshotAs(OutputType.FILE);
 		String destFile = Constants.SCREENSHOT_FILEPATH + fileName + getTimeStamp() + ".png";
-		
+
 		try {
 			FileUtils.copyFile(srcFile, new File(destFile));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+
 		return destFile;
-		
+
 	}
+
 	/**
 	 * 
 	 * @return
@@ -164,5 +167,26 @@ public class Functions extends PageInitializer {
 	public static void uploadFile(WebElement element, String path) {
 		sendText(element, path);
 	}
-		
+
+//---------------------------------------------------------------------------------------
+
+	public static void selectOptionDDbyValue(WebElement element, String text) {
+		try {
+			Select select = new Select(element);
+			List<WebElement> list = select.getOptions();
+			for (WebElement el : list) {
+				String opt = el.getText().trim();
+				String optToSelect = text.trim();
+
+				if (el.isEnabled() && opt.equalsIgnoreCase(optToSelect)) {
+					select.selectByVisibleText(optToSelect);
+					break;
+				}
+			}
+		} catch (UnexpectedTagNameException e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }

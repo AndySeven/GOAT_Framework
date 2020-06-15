@@ -1,4 +1,4 @@
-package com.goat.steps;
+package com.goat.runners;
 
 import org.junit.runner.RunWith;
 
@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		 features = "target/failed.txt"
+		 features = "@target/failed.txt"
 		,glue = "com/goat/steps"
 		,monochrome = true
 		, plugin = {

@@ -1,4 +1,4 @@
-package com.goat.steps;
+package com.goat.runners;
 
 import org.junit.runner.RunWith;
 
@@ -16,14 +16,14 @@ import io.cucumber.junit.CucumberOptions;
 
 		, monochrome = true
 
-		// ,tags = ""
+		//,tags = "@OnTest"
 
 		, plugin = {
 
 				  "pretty"
 				, "html:target/cucumber-default-report"
 				, "json:target/cucumber.json"           // https://github.com/damianszczepanik/maven-cucumber-reporting
-				, "rerun:target/faild.txt"
+				, "rerun:target/failed.txt"				// to rerun failed tests
 
 		})
 public class TestRunner {

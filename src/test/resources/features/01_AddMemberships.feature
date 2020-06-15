@@ -1,6 +1,7 @@
 #Author: Andrei Shelekhov andreishelekhov@yahoo.com
 Feature: Adding Memberships
 
+  @GroupMemberships
   Scenario: As Admin i want to add memberships
     Given I logged in application
     And I navigated to the Memberships page

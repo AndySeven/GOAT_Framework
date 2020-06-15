@@ -15,6 +15,10 @@ public class DashboardPageElements extends Functions{
 	public WebElement qualificationsBtn;
 	@FindBy(id="menu_admin_membership")
 	public WebElement membershipsOpt;
+	@FindBy(id="menu_pim_viewPimModule")
+	public WebElement pimBtn;
+	@FindBy(id="menu_pim_addEmployee")
+	public WebElement addEmpBtn;
 	
 	
 	

@@ -1,7 +1,5 @@
 package com.goat.testbase;
 
-import java.util.NoSuchElementException;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -31,7 +29,7 @@ public class BaseClass {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
 			ChromeOptions chromeOpt = new ChromeOptions();
-			chromeOpt.addArguments("--start-fullscreen");
+			//chromeOpt.addArguments("--start-fullscreen");
 			//chromeOpt.addArguments("--kiosk");
 			driver = new ChromeDriver(chromeOpt);
 			break;
@@ -45,11 +43,12 @@ public class BaseClass {
 
 		default:
 
-			throw new NoSuchElementException("This Browser is NOT suported");
+			throw new RuntimeException("This Browser is NOT suported");
 
 		}
-
+		
 		PageInitializer.init();
+		driver.manage().window().maximize();
 		driver.get(ConfReader.getProperty("url"));
 		return driver;
 

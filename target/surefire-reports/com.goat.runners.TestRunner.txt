@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: com.goat.steps.TestRunner
+Test set: com.goat.runners.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.276 s - in com.goat.steps.TestRunner
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 81.1 s - in com.goat.runners.TestRunner
