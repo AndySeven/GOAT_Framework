@@ -8,7 +8,7 @@ import com.goat.utils.ConfReader;
 import com.goat.utils.Functions;
 
 public class LoginPageElements extends Functions {
-
+	
 	@FindBy(id = "txtUsername")
 	public WebElement username;
 	@FindBy(id = "txtPassword")
@@ -23,6 +23,7 @@ public class LoginPageElements extends Functions {
 	// functions for login page
 
 	public void loginAdmin() {
+		
 		sendText(username, ConfReader.getProperty("adminUsername"));
 		sendText(password, ConfReader.getProperty("adminPassword"));
 		click(btnLogin);

@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: Adding memberships to employee
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 47.683 s <<< FAILURE! - in Adding memberships to employee
+Adding memberships to employee.As Admin i wand to add memberships to any employee  Time elapsed: 0.084 s  <<< ERROR!
+java.lang.NullPointerException
+
+Adding memberships to employee.As Admin i wand to add memberships to any employee  Time elapsed: 0 s  <<< ERROR!
+java.lang.NullPointerException
+

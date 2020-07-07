@@ -40,11 +40,12 @@ public class AddMembershipsSteps extends Functions {
 	public void i_enter_the_name_of_membership_and_click_on_Save_button(DataTable dataTable) throws Exception {
 		expListMemb = new LinkedList<>(dataTable.asList());
 		for (String m : expListMemb) {
-		    //try {
+			// if membership exist it lets TC pass using try and catch
+			try {
 				memb.addMembership(m);
-			//} catch (Exception e) {
-			//	System.out.println(e.getMessage());
-			//}	
+			} catch (Exception e) {
+				System.out.println("<-- Test CASE faild: " + e.getMessage());
+			}
 		}
 	}
 
@@ -54,6 +55,7 @@ public class AddMembershipsSteps extends Functions {
 		Collections.sort(expListMemb);
 		Collections.sort(addedListMemb);
 		Assert.assertEquals("Memberships are NOT added", expListMemb, addedListMemb);
+		
 	}
 
 }

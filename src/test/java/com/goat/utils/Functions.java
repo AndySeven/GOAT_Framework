@@ -1,12 +1,17 @@
 package com.goat.utils;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.text.PDFTextStripper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
@@ -188,5 +193,44 @@ public class Functions extends PageInitializer {
 		}
 
 	}
+
+//---------------------------------------------------------------------------------------
+	
+	public String readPDFContent(String appUrl) throws Exception {
+		// get the URL object using actual String URL 
+		URL url = new URL(appUrl);
+		
+		// using reference variable URL type call the method openStream()
+		// returned result we store in InputStream type ref var
+		InputStream input = url.openStream();
+		
+		// Use this var as parameter to BufferedInputStream constructor, getting its object
+		BufferedInputStream fileToParse = new BufferedInputStream(input);
+
+		
+		PDDocument document = null;
+		String output = null;
+		
+		try {
+			
+			// getting pdf file using static method load and pass as parameter BufferedInputStream object
+			// and store it in PDDocument typr variable 
+			document = PDDocument.load(fileToParse);
+			
+			// getting text from pdf 
+			output = new PDFTextStripper().getText(document);
+			System.out.println(output);
+
+		} finally {
+			if (document != null) {
+				document.close();
+			}
+			fileToParse.close();
+			input.close();
+		}
+		System.out.println(output);
+		return output;
+	}
+	
 
 }
