@@ -7,7 +7,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
@@ -21,7 +20,7 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
-
+		
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -30,12 +29,18 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
-		<!-- <dependency> <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-chrome-driver</artifactId> 
-			<version>3.141.59</version> </dependency> -->
+	<!-- 	<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
-		<!-- <dependency> <groupId>org.seleniumhq.selenium</groupId> <artifactId>selenium-firefox-driver</artifactId> 
-			<version>3.141.59</version> </dependency> -->
+		<!-- <dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>3.141.59</version>
+		</dependency> -->
 
 		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
 		<dependency>
@@ -67,22 +72,6 @@
 			<version>4.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
-		<dependency>
-			<groupId>org.apache.pdfbox</groupId>
-			<artifactId>pdfbox</artifactId>
-			<version>2.0.20</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>8.0.20</version>
-		</dependency>
-
-
-
 
 	</dependencies>
 
@@ -99,10 +88,8 @@
 				<version>3.0.0-M4</version>
 				<configuration>
 					<includes>
-					<!-- <parallel>methods</parallel>
-					<useUnlimitedThreads>true</useUnlimitedThreads> -->
-					<!-- for run from POM.xml -->
-					<include>**/*TestRunner.java</include>
+						<!-- for run from POM.xml -->
+						<include>**/*TestRunner.java</include>
 					</includes>
 					<!-- for json reports -->
 					<testFailureIgnore>true</testFailureIgnore>
@@ -123,18 +110,18 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<!-- Manual: pj name -->
+						<!-- Manual: pj name -->
 							<projectName>GoatFramework</projectName>
-
+							
 							<!-- output directory for the generated report -->
 							<outputDirectory>${project.build.directory}</outputDirectory>
-							<!-- !!!! -->
+							<!-- !!!!-->
 							<inputDirectory>${project.build.directory}</inputDirectory>
 							<jsonFiles>
 								<!-- supports wildcard or name pattern -->
 								<param>**/*.json</param>
 							</jsonFiles>
-
+							
 						</configuration>
 					</execution>
 				</executions>

@@ -16,12 +16,10 @@ public class AddEmployeePageElements extends Functions{
 	public WebElement btnSave;
 	@FindBy(id="employeeId")
 	public WebElement employeeId;
-		
+	
 	
 	public AddEmployeePageElements() {
 		PageFactory.initElements(driver, this);
-		
-		
 	}
 	
 
